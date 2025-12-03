@@ -1,3 +1,4 @@
+// Lista de pessoas com o valor individual já calculado
 const pessoas = [
   { id: 'thiago', nome: "Thiago", valor: 389.69 },
   { id: 'paula', nome: "Paula", valor: 389.69 },
@@ -46,7 +47,9 @@ function carregarConfirmacoes() {
 function salvarConfirmacoes() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(confirmacoes));
-  } catch (e) {}
+  } catch (e) {
+    // se der erro, ignora
+  }
 }
 
 const listaDiv = document.getElementById("lista-nomes");
@@ -58,7 +61,7 @@ function montarLista() {
     const div = document.createElement("div");
     div.className = "nome";
     div.dataset.id = p.id;
-    div.innerHTML = <span>${p.nome}</span>;
+    div.innerHTML = `<span>${p.nome}</span>`;
 
     const status = confirmacoes[p.id];
     if (status === 'sim') {
@@ -83,7 +86,8 @@ function montarLista() {
 function abrirDetalhes(pessoa) {
   pessoaSelecionada = pessoa;
   document.getElementById("detalhes-nome").innerText = pessoa.nome;
-  document.getElementById("detalhes-valor").innerText = pessoa.valor.toFixed(2).replace('.', ',');
+  document.getElementById("detalhes-valor").innerText =
+    pessoa.valor.toFixed(2).replace('.', ',');
 
   const status = confirmacoes[pessoa.id];
   const statusEl = document.getElementById('detalhes-status');
@@ -109,10 +113,13 @@ function confirmar(vai) {
   montarLista();
 
   const statusEl = document.getElementById('detalhes-status');
-  statusEl.textContent = vai
-    ? 'Presença confirmada! Você marcou que vai participar.'
-    : 'Marcado que você NÃO vai participar.';
-  statusEl.style.color = vai ? '#1b7a31' : '#b02116';
+  if (vai) {
+    statusEl.textContent = 'Presença confirmada! Você MARCOU que vai participar.';
+    statusEl.style.color = '#1b7a31';
+  } else {
+    statusEl.textContent = 'Marcado que você NÃO vai participar.';
+    statusEl.style.color = '#b02116';
+  }
 
   alert(vai ? 'Presença confirmada!' : 'Marcado como não vai.');
 }
@@ -124,9 +131,10 @@ function copiarPix() {
     msg.textContent = 'Chave copiada!';
     setTimeout(() => msg.textContent = '', 2000);
   }).catch(() => {
-    alert('Erro ao copiar.');
+    alert('Não foi possível copiar, mas a chave está logo acima.');
   });
 }
 
+// inicialização
 carregarConfirmacoes();
 montarLista();
