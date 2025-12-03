@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Confirmação Chácara 31/12 a 02/01</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Importa o CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -13,8 +15,8 @@
 
     <div class="info-box">
       <strong>Informações importantes</strong>
-      <div>✅ Prazo para pagamento: <b>até 15/12</b></div>
-      <div>✅ Valores já incluem chácara, cadeiras, comida e chope (quando tiver).</div>
+      <div>Prazo para pagamento: <b>até 15/12</b></div>
+      <div>Valores já incluem chácara, cadeiras, comida e chope (quando tiver).</div>
     </div>
 
     <div class="pix-box">
@@ -39,8 +41,8 @@
           <div><b>PIX:</b> 40029485878 – Thiago Pereira da Silva</div>
 
           <div class="botoes">
-            <button class="sim" onclick="confirmar(true)">✅ Vou participar</button>
-            <button class="nao" onclick="confirmar(false)">❌ Não vou</button>
+            <button class="sim" onclick="confirmar(true)">Vou participar</button>
+            <button class="nao" onclick="confirmar(false)">Não vou</button>
           </div>
 
           <div class="status-texto" id="detalhes-status"></div>
@@ -49,10 +51,6 @@
     </div>
 
     <div class="rodape">
-      As confirmações ficam salvas apenas neste aparelho (navegador) para controle visual.
+      As confirmações ficam salvas apenas neste aparelho (navegador).
     </div>
   </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
