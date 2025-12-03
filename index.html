@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmação Chácara 31/12 a 02/01</title>
+
+  <!-- Importa o CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Confirmação de Presença – Chácara 31/12 a 02/01</h1>
+    <p class="subtitulo">Clique no seu nome, veja o valor e marque se vai participar ou não.</p>
+
+    <div class="info-box">
+      <strong>Informações importantes</strong>
+      <div>Prazo para pagamento: <b>até 15/12</b></div>
+      <div>Valores já incluem chácara, cadeiras, comida e chope (quando tiver).</div>
+    </div>
+
+    <div class="pix-box">
+      <strong>PIX para pagamento</strong>
+      <div>Nome: Thiago Pereira da Silva</div>
+      <div class="pix-chave" id="pix-chave">40029485878</div>
+      <button class="btn-copiar" onclick="copiarPix()">Copiar chave PIX</button>
+      <span id="copiar-msg" style="font-size:0.8rem; margin-left:8px;"></span>
+    </div>
+
+    <div class="layout">
+      <div class="lista-wrapper">
+        <div class="lista-titulo">Lista de nomes</div>
+        <div id="lista-nomes"></div>
+      </div>
+
+      <div class="detalhes-wrapper">
+        <div id="detalhes">
+          <h3 id="detalhes-nome"></h3>
+          <div>Valor total a pagar até 15/12:</div>
+          <div class="valor-destaque">R$ <span id="detalhes-valor"></span></div>
+          <div><b>PIX:</b> 40029485878 – Thiago Pereira da Silva</div>
+
+          <div class="botoes">
+            <button class="sim" onclick="confirmar(true)">Vou participar</button>
+            <button class="nao" onclick="confirmar(false)">Não vou</button>
+          </div>
+
+          <div class="status-texto" id="detalhes-status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rodape">
+      As confirmações ficam salvas apenas neste aparelho (navegador).
+    </div>
+  </div>
+
+  <!-- Importa o JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+</html>
